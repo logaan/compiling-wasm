@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+tinygo build -o add.wasm -target wasm-unknown ./add.go
+

@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+export COMPONENT_ADAPTER_REACTOR=./wasi_snapshot_preview1.reactor.wasm
+wasm-tools component embed --world example ./add.wit add.wasm -o add.embed.wasm
+wasm-tools component new -o add.component.wasm --adapt wasi_snapshot_preview1="$COMPONENT_ADAPTER_REACTOR" add.embed.wasm
+
