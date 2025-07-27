@@ -25,20 +25,20 @@
 
 # Languages to try
 
-- [x] Band coded
+- [x] Hand coded
   - 228 bytes for `add` as a component
-- [x] Javascript
-  - Produces 12mb binaries because it embeds the Spidermonkey runtime
-- [x] [Grain](http://grain-lang.org)
-  - 48kb. Pulling in wasi at the moment. Possibly because we're using the run interface. Maybe there's a way to avoid that.
 - [x] OCaml
   - 9.7kb for hello world.
 - [x] Try [Tinygo](https://github.com/bytecodealliance/go-modules)
   - 17kb
-- [ ] Try [Python](https://github.com/bytecodealliance/componentize-py)
-  - 
 - [x] Rust
   - 21kb to return (not print) hello world with component
+- [x] [Grain](http://grain-lang.org)
+  - 48kb. Pulling in wasi at the moment. Possibly because we're using the run interface. Maybe there's a way to avoid that.
+- [x] Javascript
+  - Produces 12mb binaries because it embeds the Spidermonkey runtime
+- [x] Try [Python](https://github.com/bytecodealliance/componentize-py)
+  - 34mb
 
 # Reading
 
