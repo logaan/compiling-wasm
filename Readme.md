@@ -31,6 +31,7 @@
   - 48kb. Pulling in wasi at the moment. Possibly because we're using the run interface. Maybe there's a way to avoid that.
 - [ ] Try ocaml
   - [wasm_of_ocaml](https://github.com/ocsigen/js_of_ocaml/blob/master/README_wasm_of_ocaml.md) looks like a good option for building it.
+  - 9.7kb for hello world.
 - [ ] Try full blown [Golang](https://github.com/bytecodealliance/go-modules)
 - [ ] Try [Tiny Golang](https://github.com/bytecodealliance/go-modules)
 - [ ] Try [Python](https://github.com/bytecodealliance/componentize-py)
