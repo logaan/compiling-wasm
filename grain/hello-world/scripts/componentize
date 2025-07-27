@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+wasm-tools component new hello.gr.wasm \
+  --adapt wasi_snapshot_preview1.command.wasm \
+  -o hello.component.wasm

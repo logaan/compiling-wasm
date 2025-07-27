@@ -26,13 +26,13 @@
 
 - [x] Try JS
   - Produces 12mb binaries because it embeds the Spidermonkey runtime
-- [ ] Try [MoonBit](https://www.moonbitlang.com)
+- [x] Try [Grain](http://grain-lang.org)
+  - 48kb. Pulling in wasi at the moment. Possibly because we're using the run interface. Maybe there's a way to avoid that.
+- [ ] Try ocaml
+  - [wasm_of_ocaml](https://github.com/ocsigen/js_of_ocaml/blob/master/README_wasm_of_ocaml.md) looks like a good option for building it.
 - [ ] Try full blown [Golang](https://github.com/bytecodealliance/go-modules)
 - [ ] Try [Tiny Golang](https://github.com/bytecodealliance/go-modules)
 - [ ] Try [Python](https://github.com/bytecodealliance/componentize-py)
-- [ ] Try [Grain](http://grain-lang.org)
-- [ ] Try ocaml
-  - [wasm_of_ocaml](https://github.com/ocsigen/js_of_ocaml/blob/master/README_wasm_of_ocaml.md) looks like a good option for building it.
 
 # Reading
 

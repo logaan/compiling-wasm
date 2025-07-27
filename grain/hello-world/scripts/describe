@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+jco wit hello.component.wasm

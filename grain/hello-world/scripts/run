@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+wasmtime \
+  -W tail-call \
+  hello.component.wasm
