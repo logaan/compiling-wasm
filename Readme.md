@@ -37,7 +37,7 @@
   - 17kb
 - [ ] Try [Python](https://github.com/bytecodealliance/componentize-py)
   - 
-- [ ] Rust
+- [x] Rust
   - 21kb to return (not print) hello world with component
 
 # Reading
