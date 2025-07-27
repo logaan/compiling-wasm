@@ -2,6 +2,7 @@
 
 # https://github.com/rylev/wepl
 
+./scripts/build
 echo "add(1,2)"
-wepl adder.wasm
+wepl target/adder.component.wasm
 

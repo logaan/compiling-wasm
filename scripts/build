@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+rm -rf target
+mkdir target
+
+wasm-tools component embed \
+  adder.wit adder.wat \
+  --world root \
+  --output target/adder.embed.wasm
+
+wasm-tools component new \
+  target/adder.embed.wasm \
+  --output target/adder.component.wasm

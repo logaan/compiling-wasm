@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-
-# brew install wabt
-
-wat2wasm adder.wat
-
