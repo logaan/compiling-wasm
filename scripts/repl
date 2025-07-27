@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+# https://github.com/rylev/wepl
+
+echo "add(1,2)"
+wepl adder.wasm
+
