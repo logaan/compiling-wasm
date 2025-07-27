@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+# https://component-model.bytecodealliance.org/language-support/javascript.html
+
+npm exec -- jco componentize \
+    adder.js \
+    --wit adder.wit \
+    --world-name adder \
+    --out adder.wasm \
+    --disable all

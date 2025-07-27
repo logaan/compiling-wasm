@@ -4,4 +4,3 @@
        local.get $rhs
        i32.add)
    (export "add" (func $add)))
-
