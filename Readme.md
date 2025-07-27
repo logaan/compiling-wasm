@@ -18,6 +18,9 @@
 - [ ] If a language (like grain) compiles to wasm, but not wasm components how much of a hassle is it to add the component layer?
 - [ ] Time how long it takes to count to a billion.
 - [ ] Can you compile wasm in a browser window and have it dynamically loaded and run?
+- [ ] Can you get good stack traces?
+- [ ] Can you step through with a debugger?
+- [ ] Are there something like source maps?
 
 # Languages to try
 
@@ -29,3 +32,7 @@
 - [ ] Try [Grain](http://grain-lang.org)
 - [ ] Try ocaml
   - [wasm_of_ocaml](https://github.com/ocsigen/js_of_ocaml/blob/master/README_wasm_of_ocaml.md) looks like a good option for building it.
+
+# Reading
+
+- [ ] [Wasm Component Async Explainer](https://github.com/WebAssembly/component-model/blob/main/design/mvp/Async.md#streams-and-futures)
