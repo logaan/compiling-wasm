@@ -24,7 +24,8 @@
 
 # Languages to try
 
-- [ ] Try JS
+- [x] Try JS
+  - Produces 12mb binaries because it embeds the Spidermonkey runtime
 - [ ] Try [MoonBit](https://www.moonbitlang.com)
 - [ ] Try full blown [Golang](https://github.com/bytecodealliance/go-modules)
 - [ ] Try [Tiny Golang](https://github.com/bytecodealliance/go-modules)

@@ -8,3 +8,9 @@ npm exec -- jco componentize \
     --world-name adder \
     --out adder.wasm \
     --disable all
+
+du -h adder.wasm
+
+# It's still producing 12mb binaries. About 8mb of that is the Spidermonkey
+# runtime according to https://github.com/bytecodealliance/ComponentizeJS
+# Maybe GC isn't sufficient for getting small js wasm binaries
