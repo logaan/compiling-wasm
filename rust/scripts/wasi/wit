@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+wasm-tools component wit target/wasm32-wasip1/release/hello.wasm
+

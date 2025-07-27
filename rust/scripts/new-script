@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+NEW_SCRIPT_PATH="scripts/$1"
+
+touch $NEW_SCRIPT_PATH
+echo "#!/usr/bin/env sh\n\n" > $NEW_SCRIPT_PATH
+chmod u+x $NEW_SCRIPT_PATH
+vim $NEW_SCRIPT_PATH
+

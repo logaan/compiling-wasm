@@ -25,16 +25,20 @@
 
 # Languages to try
 
-- [x] Try JS
+- [x] Band coded
+  - 228 bytes for `add` as a component
+- [x] Javascript
   - Produces 12mb binaries because it embeds the Spidermonkey runtime
-- [x] Try [Grain](http://grain-lang.org)
+- [x] [Grain](http://grain-lang.org)
   - 48kb. Pulling in wasi at the moment. Possibly because we're using the run interface. Maybe there's a way to avoid that.
-- [x] Try ocaml
-  - [wasm_of_ocaml](https://github.com/ocsigen/js_of_ocaml/blob/master/README_wasm_of_ocaml.md) looks like a good option for building it.
+- [x] OCaml
   - 9.7kb for hello world.
 - [x] Try [Tinygo](https://github.com/bytecodealliance/go-modules)
-  - 20kb
+  - 17kb
 - [ ] Try [Python](https://github.com/bytecodealliance/componentize-py)
+  - 
+- [ ] Rust
+  - 21kb to return (not print) hello world with component
 
 # Reading
 

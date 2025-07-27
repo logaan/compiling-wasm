@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+wepl target/wasm32-unknown-unknown/release/hello.wasm
+
