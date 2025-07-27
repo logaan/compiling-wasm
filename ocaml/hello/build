@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+dune build ./foo.bc.wasm.js
+node _build/default/foo.bc.wasm.js

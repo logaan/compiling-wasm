@@ -21,6 +21,7 @@
 - [ ] Can you get good stack traces?
 - [ ] Can you step through with a debugger?
 - [ ] Are there something like source maps?
+  - wasm_of_ocaml says that there are [in the dune docs](https://dune.readthedocs.io/en/latest/wasmoo.html)
 
 # Languages to try
 

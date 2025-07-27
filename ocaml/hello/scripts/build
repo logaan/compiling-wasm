@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-
-opam exec -- dune build
-opam exec -- dune exec hello
