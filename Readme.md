@@ -11,6 +11,7 @@
   - And [this appears to be the proposal](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md).
     - The code example here is almost a useable lisp
 - [ ] Bundle some kind of hairy image magick transformation into a wasm component
+- [ ] What does the code for working with a Wasm Component variant look like in raw wasm?
 - [ ] Pass some environment functions into a wasm runtime
   - [mdn Addition example](https://developer.mozilla.org/en-US/docs/WebAssembly/Reference/Numeric/Addition) shows how it can be done.
 
