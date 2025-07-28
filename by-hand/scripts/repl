@@ -1,8 +1,12 @@
 #!/usr/bin/env sh
 
+set -e
+
 # https://github.com/rylev/wepl
 
-./scripts/build
+EXAMPLE=$1
+
+./scripts/build $EXAMPLE
 echo "add(1,2)"
-wepl target/adder.component.wasm
+wepl target/$EXAMPLE.component.wasm
 

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billion WASM Component</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .container {
+      margin: 20px 0;
+    }
+
+    input,
+    button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .success {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Billion WASM Component Demo</h1>
+
+  <div class="container">
+    <h2>Load WebAssembly Component</h2>
+    <button id="loadWasm">Load WASM Component</button>
+    <div id="loadStatus"></div>
+  </div>
+
+  <div class="container">
+    <h2>Test the billion function</h2>
+    <input type="number" id="inputValue" placeholder="Enter a number" value="42">
+    <button id="callFunction" disabled>Call billion(x)</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    let wasmInstance = null;
+
+    async function loadWasmComponent() {
+      try {
+        const loadStatus = document.getElementById('loadStatus');
+        loadStatus.innerHTML = 'Loading WASM component...';
+
+        // Fetch the WebAssembly component
+        const response = await fetch('target/billion.embed.wasm');
+        if (!response.ok) {
+          throw new Error(`Failed to fetch WASM file: ${response.status}`);
+        }
+
+        const wasmBytes = await response.arrayBuffer();
+
+        // Instantiate the WebAssembly module
+        const wasmModule = await WebAssembly.compile(wasmBytes);
+        wasmInstance = await WebAssembly.instantiate(wasmModule);
+
+        loadStatus.innerHTML = '<span class="success">✓ WASM component loaded successfully!</span>';
+        document.getElementById('callFunction').disabled = false;
+
+        // Log available exports for debugging
+        console.log('Available exports:', Object.keys(wasmInstance.exports));
+
+      } catch (error) {
+        console.error('Error loading WASM:', error);
+        document.getElementById('loadStatus').innerHTML =
+          `<span class="error">✗ Error loading WASM: ${error.message}</span>`;
+      }
+    }
+
+    function callBillionFunction() {
+      if (!wasmInstance) {
+        document.getElementById('result').innerHTML =
+          '<span class="error">WASM component not loaded yet!</span>';
+        return;
+      }
+
+      try {
+        const inputValue = parseInt(document.getElementById('inputValue').value);
+
+        if (isNaN(inputValue)) {
+          document.getElementById('result').innerHTML =
+            '<span class="error">Please enter a valid number</span>';
+          return;
+        }
+
+        // Call the billion function with timing
+        const startTime = performance.now();
+        const result = wasmInstance.exports.billion(inputValue);
+        const endTime = performance.now();
+        const executionTime = endTime - startTime;
+
+        document.getElementById('result').innerHTML =
+          `<span class="success">billion(${inputValue}) = ${result}<br>Execution time: ${executionTime.toFixed(3)} ms</span>`;
+
+      } catch (error) {
+        console.error('Error calling billion function:', error);
+        document.getElementById('result').innerHTML =
+          `<span class="error">Error calling function: ${error.message}</span>`;
+      }
+    }
+
+    // Event listeners
+    document.getElementById('loadWasm').addEventListener('click', loadWasmComponent);
+    document.getElementById('callFunction').addEventListener('click', callBillionFunction);
+
+    // Allow Enter key to call the function
+    document.getElementById('inputValue').addEventListener('keypress', function (e) {
+      if (e.key === 'Enter' && !document.getElementById('callFunction').disabled) {
+        callBillionFunction();
+      }
+    });
+  </script>
+</body>
+
+</html>

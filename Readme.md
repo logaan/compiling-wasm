@@ -4,7 +4,8 @@
 - [ ] Write a fn that prints "Hello World" to STDOUT.
 - [ ] Figure out the most idiomatic component naming scheme and do an example with that.
 - [ ] Have a public function internally call a private function.
-- [ ] Tail call yourself until the stack blows
+- [x] Tail call yourself until the stack blows
+  - It did not (up to a billion at least)
   - It might not [this article](https://web.dev/blog/wasmgc-wasm-tail-call-optimizations-baseline) says TCO has landed.
   - [This one](https://v8.dev/blog/wasm-tail-call) goes into more detail.
   - And [this appears to be the proposal](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md).
@@ -16,7 +17,9 @@
 # Experiments
 
 - [ ] If a language (like grain) compiles to wasm, but not wasm components how much of a hassle is it to add the component layer?
-- [ ] Time how long it takes to count to a billion.
+- [x] Time how long it takes to count to a billion.
+  - About 2 seconds using wepl
+  - 5.6s in the browser
 - [ ] Can you compile wasm in a browser window and have it dynamically loaded and run?
 - [ ] Can you get good stack traces?
 - [ ] Can you step through with a debugger?

@@ -1,13 +1,20 @@
 #!/usr/bin/env sh
 
+set -e
+
+# eg: ./scripts/build adder
+EXAMPLE=$1
+
 rm -rf target
 mkdir target
 
+echo "embed"
 wasm-tools component embed \
-  adder.wit adder.wat \
+  $EXAMPLE.wit $EXAMPLE.wat \
   --world root \
-  --output target/adder.embed.wasm
+  --output target/$EXAMPLE.embed.wasm
 
+echo "new"
 wasm-tools component new \
-  target/adder.embed.wasm \
-  --output target/adder.component.wasm
+  target/$EXAMPLE.embed.wasm \
+  --output target/$EXAMPLE.component.wasm
