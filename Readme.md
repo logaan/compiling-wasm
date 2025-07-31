@@ -39,6 +39,8 @@
   - 21kb to return (not print) hello world with component
 - [x] [Grain](http://grain-lang.org)
   - 48kb. Pulling in wasi at the moment. Possibly because we're using the run interface. Maybe there's a way to avoid that.
+- [x] C
+  - 49kb. For a variant example with no wasi.
 - [x] Javascript
   - Produces 12mb binaries because it embeds the Spidermonkey runtime
 - [x] Try [Python](https://github.com/bytecodealliance/componentize-py)

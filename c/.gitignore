@@ -1,0 +1,6 @@
+/wasi-sdk-27.0-arm64-macos
+puppy.wasm
+puppy.wat
+puppy.c
+puppy.h
+puppy_component_type.o

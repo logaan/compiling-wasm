@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+# https://component-model.bytecodealliance.org/language-support/c.html
+# NOTE: Download https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-27/wasi-sdk-27.0-arm64-macos.tar.gz
+
+wit-bindgen c puppy.wit
+
+wasi-sdk-27.0-arm64-macos/bin/wasm32-wasip2-clang \
+    -o puppy.wasm \
+    -mexec-model=reactor \
+    component.c \
+    puppy.c \
+    puppy_component_type.o
+
+wasm-tools component wit puppy.wasm
+
+wasm-tools component

@@ -1,0 +1,10 @@
+package documentation:example@1.0.1;
+
+world puppy {
+  variant maybe-name {
+    none,
+    some(string),
+  }
+
+  export kitten: func() -> maybe-name;
+}
