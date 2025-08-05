@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+wasm-tools component wit --wat list.wit > list.wat

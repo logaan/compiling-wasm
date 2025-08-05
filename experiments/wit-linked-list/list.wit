@@ -1,0 +1,68 @@
+package documentation:example@1.0.1;
+
+world list-experiment {
+  variant allowed-destinations {
+      none,
+      any,
+      restricted(list<u8>),
+  }
+}
+
+// No luck with self reference directly from WIT:
+//
+//   error: type `allowed-destinations` depends on itself
+//        --> list.wit:7:18
+//         |
+//       7 |       restricted(allowed-destinations),
+//
+// Or by doing it with an indirection:
+//
+//   variant allowed-destinations {
+//       none,
+//       any,
+//       restricted(indirection),
+//   }
+//   variant indirection {
+//     sneaky(allowed-destinations)
+//   }
+//
+// gives:
+// 
+//   error: type `indirection` depends on itself
+//        --> list.wit:7:18
+//         |
+//       7 |       restricted(indirection),
+//         |                  ^----------
+//
+// The variant example from the docs..
+//
+//   variant allowed-destinations {
+//       none,
+//       any,
+//       restricted(list<u8>),
+//   }
+//
+// ..compiled to WAT has these lines:
+//
+//   (type (;0;) (list u8))
+//   (type (;1;) (variant (case "none") (case "any") (case "restricted" 0)))
+//
+// The 0 on the last line refers to the first line. I wonder if we could get
+// recursive references by replacing that with a 1? Or if perhaps these `(;0;)`
+// forms could be replaced with some kind of name form.
+// 
+// Nope. For numeric self reference we get:
+//
+//   error: unknown type 1: type index out of bounds (at offset 0xb)
+//
+// And for nominative self reference we get:
+//
+//   error: unknown type: failed to find name `$puppy`
+//        --> list.wat:7:79
+//         |
+//       7 |           (type $puppy (variant (case "none") (case "any") (case "restricted" $puppy)))
+//         |                                                                               ^
+//
+// So in conclusion.... an arbitrary Nana program could never be expressed as a
+// WIT type.
+//
