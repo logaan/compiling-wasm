@@ -1,0 +1,5 @@
+package logans-experiments:generics;
+
+interface kittens {
+  type puppies = list<A>;
+}

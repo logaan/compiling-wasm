@@ -43,6 +43,30 @@
       - Doesn't even need to have a signature nessisarily
     - Published at the component level
       - This would introduce much stricter restrictions on the function signature
+- What would a language look like if it was limited purely to wit?
+  - No higher order functions
+    - Maybe with some language constructs this could be liveable, even in a
+      mostly pure world? Like Clojure's `for` loops could substitute for
+      `map`... If you had a kind of `mapCat` version then I guess you could
+      implement things like `filter`.
+    - You do have tail call optimisation... so you could do loops over data
+      without fancy features. But how do you hold on to transformation /
+      filtering functions?
+    - Maybe you miss out on annonymous functions but you do let people do
+      `apply("functionname", arg, arg, arg)`. But WIT can't even express that
+      type, it doesn't have `Any` or generics.
+      - "User-defined records can't be generic (that is, parameterised by type).
+        Only built-in types can be generic."
+      - Maybe you could accomplish it with a variant that had a constructur for
+        every type. But it would be so cumbersome to work with `apply("sum", [u8(1), u8(2)])`.
+      - So then maybe something like apply isn't really exposed as a function
+        but instead a special language thing. Like js can do: `this["sum"](1,2)`.
+      - Then strings are acting as a shitty holder for named references. It's
+        not great.
+    - I don't think there's a way of doing it that results in a language I'd be
+      proud of creating or excited to work with.
+  - No polymorphism
+  - No recursive data structures
 
 # Experiments
 
