@@ -1,0 +1,5 @@
+package logans-experiments:hofs;
+
+interface foo {
+  print: func(message: string);
+}

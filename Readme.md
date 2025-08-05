@@ -29,11 +29,11 @@
 - [ ] Pass some environment functions into a wasm runtime
   - [mdn Addition example](https://developer.mozilla.org/en-US/docs/WebAssembly/Reference/Numeric/Addition) shows how it can be done.
   - I wonder if it can be done with WASM Components and Wit though? Maybe with a reference?
-- [ ] Can WIT even express functions as data? A function being passed to a function?
-  - Probably not
+- [x] Can WIT even express functions as data? A function being passed to a function?
+  - Nope.
   - If not then we're going to have to have different application behaviour for
-  Nana code vs WasmC code. Because I definately want higher order functions in
-  Nana.
+    Nana code vs WasmC code. Because I definately want higher order functions in
+    Nana.
   - Maybe you have 3 levels of visibility:
     - Private to the current Nana file / module
       - Can have a permissive signature
