@@ -1,17 +1,22 @@
 # Examples
 
-- [ ] Can WIT express the type of an AST for a simple language?
+- [x] Can WIT express the type of an AST for a simple language?
   - You have a variant type with a constructor(??) for each type
   - When it comes to collections, functions, etc then you go recursive.
+    - Can't.
   - Perhaps a simpler question is just can WIT express a cons based linked list?
+    - Nope.
 - [x] Can we export the string "Hello World" without returning it from a fn?
   - The
   [Explainer](https://github.com/WebAssembly/component-model/blob/main/design/mvp/Explainer.md#-value-definitions)
   mentions value types, but I don't see a way of expressing it in [the WIT
   definition](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)
-- [ ] Write a fn that prints "Hello World" to STDOUT.
-- [ ] Figure out the most idiomatic component naming scheme and do an example with that.
-- [ ] Have a public function internally call a private function.
+- [x] Write a fn that prints "Hello World" to STDOUT.
+- [x] Figure out the most idiomatic component naming scheme and do an example with that.
+  - It's pretty restrictive. Basically just:
+  - `package your-namespace:the-things-name@1.2.3;`
+- [x] Have a public function internally call a private function.
+  - With coding at the WAT level being unrealistic it's north worth it to try this.
 - [x] Tail call yourself until the stack blows
   - It did not (up to a billion at least)
   - It might not [this article](https://web.dev/blog/wasmgc-wasm-tail-call-optimizations-baseline) says TCO has landed.
@@ -19,9 +24,25 @@
   - And [this appears to be the proposal](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md).
     - The code example here is almost a useable lisp
 - [ ] Bundle some kind of hairy image magick transformation into a wasm component
-- [ ] What does the code for working with a Wasm Component variant look like in raw wasm?
+- [x] What does the code for working with a Wasm Component variant look like in raw wasm?
+  - Huge. Unreasonably large for a human.
 - [ ] Pass some environment functions into a wasm runtime
   - [mdn Addition example](https://developer.mozilla.org/en-US/docs/WebAssembly/Reference/Numeric/Addition) shows how it can be done.
+  - I wonder if it can be done with WASM Components and Wit though? Maybe with a reference?
+- [ ] Can WIT even express functions as data? A function being passed to a function?
+  - Probably not
+  - If not then we're going to have to have different application behaviour for
+  Nana code vs WasmC code. Because I definately want higher order functions in
+  Nana.
+  - Maybe you have 3 levels of visibility:
+    - Private to the current Nana file / module
+      - Can have a permissive signature
+      - Doesn't even need to have a signature nessisarily
+    - Public to other Nana files / modules
+      - Can have a permissive signature
+      - Doesn't even need to have a signature nessisarily
+    - Published at the component level
+      - This would introduce much stricter restrictions on the function signature
 
 # Experiments
 

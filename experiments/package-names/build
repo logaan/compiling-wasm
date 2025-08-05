@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+wasm-tools component wit logans-farm.wit

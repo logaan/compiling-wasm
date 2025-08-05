@@ -1,0 +1,14 @@
+package logan:farm-cow;
+
+// Valid: package logan:farm;
+// Invalid: package logan.cam:farm;
+// Valid: package logan-cam:farm;
+// Invalid: package logan.cam:farm.cow;
+// Valid: package %logan:farm;
+// Invalid: package -logan:farm;
+// Invalid: package lOgan:farm;
+// Valid: package LOGAN:farm;
+// Valid: package l0g4n:farm;
+// Invalid: package logan:farm:cow;
+//
+// Wit kind of treats %foo like 'foo. Not using it as a reference maybe?
