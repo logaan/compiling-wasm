@@ -1,5 +1,9 @@
 # Examples
 
+- [ ] Can WIT express the type of an AST for a simple language?
+  - You have a variant type with a constructor(??) for each type
+  - When it comes to collections, functions, etc then you go recursive.
+  - Perhaps a simpler question is just can WIT express a cons based linked list?
 - [x] Can we export the string "Hello World" without returning it from a fn?
   - The
   [Explainer](https://github.com/WebAssembly/component-model/blob/main/design/mvp/Explainer.md#-value-definitions)
