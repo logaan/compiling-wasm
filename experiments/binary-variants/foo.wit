@@ -1,0 +1,11 @@
+package logan:binary-variants;
+
+world bar {
+  variant maybe-u8 {
+      none,
+      some(u8),
+  }
+
+  export take: func(message: maybe-u8);
+  export give: func() -> maybe-u8;
+}

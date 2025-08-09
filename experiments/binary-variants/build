@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+wasm-tools component wit foo.wit
+wit-bindgen rust foo.wit
